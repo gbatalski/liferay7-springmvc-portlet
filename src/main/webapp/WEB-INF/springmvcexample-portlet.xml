@@ -18,4 +18,20 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
+	<bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+		<property name="prefix" value="/WEB-INF/thymeleaf/templates/"></property>
+		<property name="suffix" value=".html"></property>
+		<property name="templateMode" value="HTML5"></property>
+		<constructor-arg ref="servletContext"></constructor-arg>
+	</bean>
+
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver"></property>
+	</bean>
+
+	<bean id="thymeleafSpringResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine"></property>
+		<property name="order" value="1"></property>
+	</bean>
 </beans>
