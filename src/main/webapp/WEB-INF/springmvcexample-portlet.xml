@@ -11,14 +11,6 @@
 	<context:component-scan base-package="com.vernaillen.liferay" />
 	<context:annotation-config />
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.InternalResourceView" />
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-
 	<bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
 		<property name="prefix" value="/WEB-INF/thymeleaf/templates/"></property>
 		<property name="suffix" value=".html"></property>
