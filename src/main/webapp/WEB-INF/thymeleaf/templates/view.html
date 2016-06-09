@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
-    ...
+
   </head>
   <body>
-    Gena
+
+    User ID  = <span th:text="${themeDisplay.getUserId()}">123</span>
+
+	<br />
+
     <div th:replace="fragments/header :: header">
       <!-- ============================================================================ -->
       <!-- This content is only used for static prototyping purposes (natural templates)-->
@@ -40,6 +44,30 @@
           <a href="/signup" th:href="@{/signup}" class="btn btn-large btn-success">Sign up</a>
         </p>
       </div>
+      <form action="#" th:action="${saveChangesActionURL}" method="POST" th:object="${user}">
+			<input th:field="*{firstName}"/>
+
+		<input type="submit"/>
+	  </form>
+
+	  <button onClick="ajaxGet()">Ajax Test</button>
+
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+		function ajaxGet() {
+			var url = [[${sampleResourceURL}]];
+			var r = new XMLHttpRequest();
+			r.open("GET", url, true);
+			r.onreadystatechange = function() {
+				if(this.status == 200 && this.readyState == XMLHttpRequest.DONE) {
+					alert("AJAX Response = "+r.responseText);
+				}
+			};
+			r.send();
+		}
+	/*]]>*/
+	</script>
+
       <div th:replace="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
     </div>
   </body>

@@ -10,6 +10,7 @@ In this project you find an example of:
 * A call to the Liferay API (using PortalUtil) to retrieve the current authenticated user
 * A model object to pass to the view
 * Thymeleaf 3.0.0 as a template engine configured to use message bundles
+* Enabled action url generation for request routing from thymeleaf forms
 
 ## Tested on
 * Liferay 7 GA1 Tomcat bundle, running on Java 8 Linux Kernel 4.6.0 with HSQL
